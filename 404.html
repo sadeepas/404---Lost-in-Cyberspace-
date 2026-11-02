@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Lost in Cyberspace | SADEEPA TECH</title>
+  <meta name="description" content="Oops! The page you are looking for in Sadeepa Tech has drifted into deep cyberspace. Explore our blog, youtube, portfolio, or play our mini arcade game!" />
+  <meta name="theme-color" content="#0f172a" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ==========================================================================
+       MODERN CSS VARIABLES & RESET
+       ========================================================================== */
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: rgba(18, 24, 38, 0.75);
+      --bg-card-hover: rgba(26, 35, 56, 0.85);
+      --border-glow: rgba(99, 102, 241, 0.25);
+      --border-accent: rgba(56, 189, 248, 0.3);
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --secondary: #06b6d4;
+      --accent: #f43f5e;
+      --cute-pink: #ec4899;
+      --cute-yellow: #fbbf24;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-mono: 'Fira Code', monospace;
+      --shadow-neon: 0 0 35px rgba(99, 102, 241, 0.35);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.16) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(236, 72, 153, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(6, 182, 212, 0.12) 0%, transparent 50%);
+    }
+
+    /* Ambient animated grid */
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 50px 50px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Starfield canvas */
+    #space-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Top navigation banner */
+    .navbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2.5rem;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6366f1, #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-avatar:hover {
+      transform: scale(1.08) rotate(5deg);
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(90deg, #ffffff, #c7d2fe, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Main Container */
+    .main-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hero Section */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 3.5rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+      }
+    }
+
+    /* Cute Mascot Illustration & Animations */
+    .mascot-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mascot-backdrop-glow {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(236, 72, 153, 0.2) 50%, transparent 70%);
+      filter: blur(40px);
+      animation: floatAura 6s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes floatAura {
+      0% { transform: scale(0.9) translate(-10px, -10px); }
+      100% { transform: scale(1.15) translate(15px, 15px); }
+    }
+
+    .cute-mascot-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glow);
+      border-radius: 28px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
+      animation: gentleFloat 4s ease-in-out infinite;
+      transition: var(--transition);
+      max-width: 440px;
+      width: 100%;
+    }
+
+    .cute-mascot-card:hover {
+      border-color: rgba(99, 102, 241, 0.55);
+      box-shadow: 0 25px 60px rgba(99, 102, 241, 0.25);
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-14px) rotate(1.5deg); }
+    }
+
+    /* Cute SVG Mascot Character */
+    .bot-svg-container {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+      position: relative;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
+    }
+
+    .bot-antenna {
+      animation: antennaWiggle 3s ease-in-out infinite;
+      transform-origin: 100px 45px;
+    }
+
+    @keyframes antennaWiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-8deg); }
+      75% { transform: rotate(8deg); }
+    }
+
+    .bot-hand {
+      animation: cuteWave 2.2s ease-in-out infinite;
+      transform-origin: 40px 125px;
+    }
+
+    @keyframes cuteWave {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-22deg); }
+    }
+
+    /* Interactive eye tracking */
+    .pupil {
+      transition: transform 0.1s ease-out;
+    }
+
+    .cute-bubble {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 7px 15px;
+      border-radius: 20px 20px 20px 0;
+      box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+      animation: bounceText 2s ease infinite;
+    }
+
+    @keyframes bounceText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .mascot-meta {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .mascot-meta h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+    }
+
+    .mascot-meta p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Area */
+    .error-code-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      color: var(--primary-light);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    .error-giant-title {
+      font-family: var(--font-heading);
+      font-size: clamp(3.5rem, 8vw, 6.2rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, #ffffff 20%, #a5b4fc 60%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+    }
+
+    .error-description {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 540px;
+    }
+
+    .error-description strong {
+      color: #e2e8f0;
+    }
+
+    /* Dynamic Search Bar */
+    .search-blog-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 6px 8px 6px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 2.2rem;
+      transition: var(--transition);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      max-width: 520px;
+    }
+
+    .search-blog-box:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 25px rgba(99, 102, 241, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .search-blog-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 0.98rem;
+      font-family: var(--font-body);
+      flex: 1;
+    }
+
+    .search-blog-box input::placeholder {
+      color: var(--text-dim);
+    }
+
+    .search-blog-box button {
+      background: linear-gradient(135deg, var(--primary), #8b5cf6);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .search-blog-box button:hover {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      transform: scale(1.03);
+    }
+
+    /* Primary Navigation Action Buttons */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.25rem;
+      width: 100%;
+      margin-bottom: 3.5rem;
+    }
+
+    .nav-card {
+      position: relative;
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    .nav-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, transparent);
+      transition: var(--transition);
+    }
+
+    .nav-card:hover {
+      transform: translateY(-7px);
+      background: var(--bg-card-hover);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Card Themes */
+    .card-blog:hover { border-color: rgba(249, 115, 22, 0.5); }
+    .card-blog:hover::before { background: linear-gradient(90deg, #f97316, #fb923c); }
+
+    .card-portfolio:hover { border-color: rgba(6, 182, 212, 0.5); }
+    .card-portfolio:hover::before { background: linear-gradient(90deg, #06b6d4, #38bdf8); }
+
+    .card-youtube:hover { border-color: rgba(239, 68, 68, 0.5); }
+    .card-youtube:hover::before { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+    .card-github:hover { border-color: rgba(168, 85, 247, 0.5); }
+    .card-github:hover::before { background: linear-gradient(90deg, #a855f7, #c084fc); }
+
+    .card-linkedin:hover { border-color: rgba(59, 130, 246, 0.5); }
+    .card-linkedin:hover::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transition: var(--transition);
+    }
+
+    .card-blog .card-icon { background: rgba(249, 115, 22, 0.15); color: #fb923c; }
+    .card-portfolio .card-icon { background: rgba(6, 182, 212, 0.15); color: #38bdf8; }
+    .card-youtube .card-icon { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+    .card-github .card-icon { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+    .card-linkedin .card-icon { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+
+    .nav-card:hover .card-icon {
+      transform: scale(1.1) rotate(6deg);
+    }
+
+    .arrow-icon {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .nav-card:hover .arrow-icon {
+      color: #fff;
+      transform: translate(3px, -3px);
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .card-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       INTERACTIVE MINI WEB GAME: "BYTE'S CYBER JUMP"
+       ========================================================================== */
+    .game-section {
+      width: 100%;
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glow);
+      border-radius: 28px;
+      padding: 2.2rem;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      margin-bottom: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .game-title-group h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+
+    .game-title-group p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-top: 4px;
+    }
+
+    .game-stats {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: var(--font-mono);
+      flex-wrap: wrap;
+    }
+
+    .stat-badge {
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 7px 14px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stat-badge span {
+      color: var(--cute-yellow);
+      font-weight: 700;
+    }
+
+    .mobile-jump-bar {
+      display: none;
+      width: 100%;
+      margin-top: 14px;
+      padding: 15px;
+      border-radius: 14px;
+      border: 1px solid rgba(99, 102, 241, 0.45);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.35), rgba(236, 72, 153, 0.35));
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 18px rgba(99, 102, 241, 0.25);
+      transition: var(--transition);
+    }
+
+    .mobile-jump-bar:active {
+      transform: scale(0.98);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(236, 72, 153, 0.6));
+    }
+
+    @media (max-width: 768px) {
+      .mobile-jump-bar {
+        display: flex;
+      }
+    }
+
+    .game-canvas-wrapper {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #060911;
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
+    }
+
+    #gameCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* CRT scanline effect */
+    .scanlines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%);
+      background-size: 100% 4px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .game-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(8, 12, 22, 0.82);
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      z-index: 5;
+      transition: opacity 0.3s ease;
+    }
+
+    .game-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .game-btn {
+      background: linear-gradient(135deg, #6366f1, #ec4899);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 14px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+      transition: var(--transition);
+    }
+
+    .game-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 12px 30px rgba(236, 72, 153, 0.45);
+    }
+
+    .game-controls-hint {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .key-badge {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      padding: 3px 8px;
+      color: #cbd5e1;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+    }
+
+    /* Popular Topics / Suggested Tags */
+    .topics-section {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .topics-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .topic-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .topic-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      padding: 8px 18px;
+      border-radius: 100px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .topic-chip:hover {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: rgba(99, 102, 241, 0.4);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+
+    /* ==========================================================================
+       FOOTER SECTION
+       ========================================================================== */
+    .footer {
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(7, 10, 18, 0.85);
+      backdrop-filter: blur(16px);
+      padding: 3rem 1.5rem 2rem;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .social-links {
+        justify-content: center;
+      }
+      .footer-links-group {
+        align-items: center;
+      }
+    }
+
+    .footer-brand h4 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-width: 360px;
+    }
+
+    .footer-heading {
+      font-family: var(--font-heading);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-links-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links-group a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links-group a:hover {
+      color: var(--primary-light);
+      transform: translateX(4px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 1.2rem;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 1.1rem;
+    }
+
+    .social-btn:hover {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: var(--primary);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .back-to-top {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .back-to-top:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient background elements -->
+  <div class="bg-grid"></div>
+  <canvas id="space-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <a href="https://sadeepatech.blogspot.com/" class="brand-logo" title="Sadeepa Tech Home">
+      <div class="brand-avatar">
+        <span>ST</span>
+      </div>
+      <div>
+        <div class="brand-name">SADEEPA TECH</div>
+      </div>
+    </a>
+    
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      <span>HTTP 404 • ROUTE_LOST</span>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-container">
+
+    <!-- Hero Section -->
+    <section class="hero-layout">
+      <!-- Left Column: Copy & Search -->
+      <div class="hero-text-content">
+        <div class="error-code-badge">
+          <i class="fa-solid fa-satellite-dish"></i>
+          <span>ERROR 404 : BEACON LOST</span>
+        </div>
+
+        <h1 class="error-giant-title">Oops! Page Missing in Orbit</h1>
+
+        <p class="error-description">
+          The coordinates you entered led to uncharted galactic space! Maybe the link changed, the article was refactored, or a cosmic bug snatched the page. Don't worry, <strong>Byte the Tech Bot</strong> is on it!
+        </p>
+
+        <!-- Blog search form -->
+        <form class="search-blog-box" action="https://sadeepatech.blogspot.com/search" method="get" target="_blank">
+          <i class="fa-solid fa-magnifying-glass" style="color: var(--text-dim);"></i>
+          <input type="text" name="q" placeholder="Search tutorials, code, tech news on blog..." required />
+          <button type="submit">
+            <span>Search</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="https://sadeepatech.blogspot.com/" class="game-btn" style="text-decoration: none;">
+            <i class="fa-solid fa-house"></i>
+            <span>Return to Main Blog</span>
+          </a>
+          <button onclick="scrollToGame()" class="game-btn" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: none;">
+            <i class="fa-solid fa-gamepad" style="color: var(--cute-pink);"></i>
+            <span>Play Mini Game</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Cute Animated Mascot Card -->
+      <div class="mascot-wrapper">
+        <div class="mascot-backdrop-glow"></div>
+        <div class="cute-mascot-card">
+          <div class="cute-bubble">404? Don't panic! 🚀</div>
+          
+          <!-- Cute Interactive SVG Bot Mascot -->
+          <div class="bot-svg-container">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <!-- Defs for Gradients -->
+              <defs>
+                <linearGradient id="botGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#818cf8"/>
+                  <stop offset="100%" stop-color="#4f46e5"/>
+                </linearGradient>
+                <linearGradient id="earGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#ec4899"/>
+                  <stop offset="100%" stop-color="#f43f5e"/>
+                </linearGradient>
+                <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0f172a"/>
+                  <stop offset="100%" stop-color="#1e293b"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Antenna with cute light bulb -->
+              <g class="bot-antenna">
+                <line x1="100" y1="48" x2="100" y2="24" stroke="#a5b4fc" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="100" cy="20" r="9" fill="#fbbf24"/>
+                <circle cx="100" cy="20" r="14" fill="#fbbf24" opacity="0.3"/>
+              </g>
+
+              <!-- Floating Thruster Flame / Cloud -->
+              <ellipse cx="100" cy="184" rx="22" ry="7" fill="#38bdf8" opacity="0.6"/>
+              <ellipse cx="100" cy="186" rx="14" ry="4" fill="#ffffff" opacity="0.9"/>
+
+              <!-- Bot Body -->
+              <rect x="62" y="125" width="76" height="52" rx="22" fill="url(#botGrad)" stroke="#c7d2fe" stroke-width="3"/>
+
+              <!-- Chest Heart / Battery Icon -->
+              <circle cx="100" cy="150" r="11" fill="#1e1b4b"/>
+              <path d="M96 150 L104 150 M100 146 L100 154" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+
+              <!-- Left Arm (Waving) -->
+              <g class="bot-hand">
+                <path d="M62 135 C38 120 30 100 42 90 C48 85 58 100 66 122" fill="url(#botGrad)" stroke="#c7d2fe" stroke-width="2.5"/>
+                <circle cx="40" cy="90" r="8" fill="#ec4899"/>
+              </g>
+
+              <!-- Right Arm -->
+              <path d="M138 135 C156 145 168 152 162 165 C158 172 148 155 134 145" fill="url(#botGrad)" stroke="#c7d2fe" stroke-width="2.5"/>
+              <circle cx="162" cy="165" r="7" fill="#818cf8"/>
+
+              <!-- Cute Cat/Bot Ears -->
+              <polygon points="56,70 42,40 76,55" fill="url(#earGrad)"/>
+              <polygon points="144,70 158,40 124,55" fill="url(#earGrad)"/>
+
+              <!-- Head -->
+              <rect x="46" y="52" width="108" height="82" rx="30" fill="url(#botGrad)" stroke="#c7d2fe" stroke-width="3.5"/>
+
+              <!-- Face Visor / Screen -->
+              <rect x="58" y="66" width="84" height="54" rx="18" fill="url(#screenGrad)" stroke="#38bdf8" stroke-width="2"/>
+
+              <!-- Cheeks (Blushing) -->
+              <ellipse cx="68" cy="104" rx="7" ry="4" fill="#f43f5e" opacity="0.7"/>
+              <ellipse cx="132" cy="104" rx="7" ry="4" fill="#f43f5e" opacity="0.7"/>
+
+              <!-- Cute Interactive Eyes -->
+              <!-- Left Eye -->
+              <ellipse cx="78" cy="88" rx="11" ry="14" fill="#38bdf8"/>
+              <circle class="pupil" id="left-pupil" cx="79" cy="87" r="5" fill="#ffffff"/>
+              
+              <!-- Right Eye -->
+              <ellipse cx="122" cy="88" rx="11" ry="14" fill="#38bdf8"/>
+              <circle class="pupil" id="right-pupil" cx="123" cy="87" r="5" fill="#ffffff"/>
+
+              <!-- Cute Smile -->
+              <path d="M94 100 Q100 106 106 100" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div class="mascot-meta">
+            <h4>Meet "Byte" • The Tech Bot</h4>
+            <p>Scanning the multiverse for your lost webpage packet</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Hub: Direct Redirection Buttons -->
+    <section style="width: 100%;">
+      <div style="text-align: center; margin-bottom: 1.8rem;">
+        <h2 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 6px;">Where Would You Like To Go?</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Jump straight into Sadeepa Tech's verified portals and resources</p>
+      </div>
+
+      <div class="links-grid">
+        <!-- 1. Main Blog -->
+        <a href="https://sadeepatech.blogspot.com/" target="_blank" rel="noopener noreferrer" class="nav-card card-blog">
+          <div class="card-top">
+            <div class="card-icon">
+              <i class="fa-solid fa-blog"></i>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+          </div>
+          <div class="card-title">SADEEPA TECH Blog</div>
+          <div class="card-desc">Read fresh tutorials, coding guides, tech breakdowns, and software tips on Blogger.</div>
+        </a>
+
+        <!-- 2. Portfolio -->
+        <a href="https://hsadeepalakshan.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="nav-card card-portfolio">
+          <div class="card-top">
+            <div class="card-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+          </div>
+          <div class="card-title">Live Portfolio</div>
+          <div class="card-desc">Explore projects, full-stack web applications, UI designs, and technical resume.</div>
+        </a>
+
+        <!-- 3. YouTube Channel -->
+        <a href="https://www.youtube.com/@sadeepatech" target="_blank" rel="noopener noreferrer" class="nav-card card-youtube">
+          <div class="card-top">
+            <div class="card-icon">
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+          </div>
+          <div class="card-title">YouTube @sadeepatech</div>
+          <div class="card-desc">Watch hands-on video guides, software tutorials, reviews, and coding walkthroughs.</div>
+        </a>
+
+        <!-- 4. GitHub -->
+        <a href="https://github.com/sadeepas" target="_blank" rel="noopener noreferrer" class="nav-card card-github">
+          <div class="card-top">
+            <div class="card-icon">
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+          </div>
+          <div class="card-title">GitHub @sadeepas</div>
+          <div class="card-desc">Browse open-source repositories, developer tools, scripts, and star projects.</div>
+        </a>
+
+        <!-- 5. LinkedIn -->
+        <a href="https://www.linkedin.com/in/sadeepa-lakshan" target="_blank" rel="noopener noreferrer" class="nav-card card-linkedin">
+          <div class="card-top">
+            <div class="card-icon">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+          </div>
+          <div class="card-title">LinkedIn Network</div>
+          <div class="card-desc">Connect professionally, exchange tech insights, and discuss collaboration.</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Mini Web Game: Byte's Cyber Runner Turbo Edition -->
+    <section class="game-section" id="game-section">
+      <div class="game-header">
+        <div class="game-title-group">
+          <h3>
+            <i class="fa-solid fa-gamepad" style="color: var(--cute-pink);"></i>
+            <span>Byte's Cosmic Glitch Runner</span>
+            <span style="font-size: 0.72rem; padding: 3px 8px; border-radius: 6px; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; font-family: var(--font-mono);">TURBO v2.0</span>
+          </h3>
+          <p>Help Byte jump, double-jump, collect stars & cyber shields, and dodge glitch bugs!</p>
+        </div>
+        <div class="game-stats">
+          <div class="stat-badge">LVL: <span id="game-level">1</span></div>
+          <div class="stat-badge">SCORE: <span id="game-score">0</span></div>
+          <div class="stat-badge">BEST: <span id="game-highscore">0</span></div>
+          <div class="stat-badge" id="shield-stat-badge" style="display: none; border-color: rgba(56, 189, 248, 0.6); color: #38bdf8;">
+            <i class="fa-solid fa-shield-halved"></i> <span>SHIELD ON</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game Canvas Viewport -->
+      <div class="game-canvas-wrapper" id="gameWrapper">
+        <div class="scanlines"></div>
+        <canvas id="gameCanvas" width="900" height="240"></canvas>
+
+        <!-- Overlay Menu -->
+        <div class="game-overlay" id="gameOverlay">
+          <div style="font-size: 2.6rem;">🚀</div>
+          <h4 id="overlayTitle" style="font-family: var(--font-heading); font-size: 1.6rem; color: #fff;">Byte's Turbo Glitch Runner</h4>
+          <p id="overlaySubtitle" style="color: var(--text-muted); font-size: 0.92rem; text-align: center; max-width: 480px;">
+            Tap or Press <strong>Space</strong> to Jump. Press again in the air for <strong>Double Jump</strong>! Collect Stars (⭐ +50) and Shields (🛡️).
+          </p>
+          <button class="game-btn" id="startBtn">
+            <i class="fa-solid fa-play"></i>
+            <span id="startBtnText">Start Game</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dedicated Responsive Mobile Jump Button -->
+      <button id="mobileJumpBtn" class="mobile-jump-bar" type="button">
+        <i class="fa-solid fa-rocket"></i>
+        <span>TAP / HOLD TO JUMP & DOUBLE JUMP</span>
+      </button>
+
+      <!-- Game Controls Bar -->
+      <div class="game-controls-hint">
+        <div>
+          Controls: <span class="key-badge">Space</span> / <span class="key-badge">↑ Arrow</span> / <span class="key-badge">Double Tap</span> = Double Jump &bull; <span class="key-badge">P</span> = Pause
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <button id="pauseToggleBtn" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: var(--text-muted); padding: 5px 12px; border-radius: 8px; cursor: pointer; font-size: 0.82rem; transition: var(--transition);">
+            <i class="fa-solid fa-pause"></i> Pause
+          </button>
+          <button id="soundToggleBtn" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: var(--text-muted); padding: 5px 12px; border-radius: 8px; cursor: pointer; font-size: 0.82rem; transition: var(--transition);">
+            <i class="fa-solid fa-volume-high"></i> Sound: ON
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suggested Topics Chips -->
+    <section class="topics-section">
+      <div class="topics-title">Trending Blog Categories on Sadeepa Tech</div>
+      <div class="topic-chips">
+        <a href="https://sadeepatech.blogspot.com/search/label/Web%20Development" target="_blank" class="topic-chip">
+          <i class="fa-solid fa-code"></i> Web Development
+        </a>
+        <a href="https://sadeepatech.blogspot.com/search/label/Python" target="_blank" class="topic-chip">
+          <i class="fa-brands fa-python"></i> Python Tutorials
+        </a>
+        <a href="https://sadeepatech.blogspot.com/search/label/Android" target="_blank" class="topic-chip">
+          <i class="fa-brands fa-android"></i> Android & Mobile
+        </a>
+        <a href="https://sadeepatech.blogspot.com/search/label/AI" target="_blank" class="topic-chip">
+          <i class="fa-solid fa-robot"></i> Artificial Intelligence
+        </a>
+        <a href="https://sadeepatech.blogspot.com/search/label/Tech%20Tips" target="_blank" class="topic-chip">
+          <i class="fa-solid fa-lightbulb"></i> Computer Tips & Tricks
+        </a>
+        <a href="https://sadeepatech.blogspot.com/search/label/Free%20Tools" target="_blank" class="topic-chip">
+          <i class="fa-solid fa-wrench"></i> Useful Tools
+        </a>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-content">
+      <!-- Brand column -->
+      <div class="footer-brand">
+        <h4>SADEEPA TECH</h4>
+        <p>
+          Empowering tech enthusiasts, coders, and makers with in-depth programming tutorials, technology guides, reviews, and creative web solutions.
+        </p>
+        <div class="social-links">
+          <a href="https://sadeepatech.blogspot.com/" target="_blank" class="social-btn" title="Blog">
+            <i class="fa-solid fa-globe"></i>
+          </a>
+          <a href="https://www.youtube.com/@sadeepatech" target="_blank" class="social-btn" title="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="https://github.com/sadeepas" target="_blank" class="social-btn" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://hsadeepalakshan.github.io/portfolio/" target="_blank" class="social-btn" title="Portfolio">
+            <i class="fa-solid fa-briefcase"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/sadeepa-lakshan" target="_blank" class="social-btn" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Navigation links -->
+      <div class="footer-links-group">
+        <div class="footer-heading">Quick Links</div>
+        <a href="https://sadeepatech.blogspot.com/"><i class="fa-solid fa-angle-right"></i> Home Blog</a>
+        <a href="https://hsadeepalakshan.github.io/portfolio/"><i class="fa-solid fa-angle-right"></i> About & Portfolio</a>
+        <a href="https://www.youtube.com/@sadeepatech"><i class="fa-solid fa-angle-right"></i> Video Tutorials</a>
+        <a href="https://github.com/sadeepas"><i class="fa-solid fa-angle-right"></i> Source Code & Repos</a>
+      </div>
+
+      <!-- Developer Info & Contact -->
+      <div class="footer-links-group">
+        <div class="footer-heading">Created By</div>
+        <a href="https://hsadeepalakshan.github.io/portfolio/" style="font-weight: 600; color: #fff;">
+          <i class="fa-solid fa-user-astronaut"></i> Sadeepa Lakshan
+        </a>
+        <a href="mailto:contact.sadeepatech@gmail.com">
+          <i class="fa-solid fa-envelope"></i> Send Inquiries
+        </a>
+        <a href="https://sadeepatech.blogspot.com/p/privacy-policy.html">
+          <i class="fa-solid fa-shield-halved"></i> Privacy Policy
+        </a>
+        <a href="https://sadeepatech.blogspot.com/p/contact.html">
+          <i class="fa-solid fa-headset"></i> Support Desk
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom copyright -->
+    <div class="footer-bottom">
+      <div>
+        &copy; <span id="currentYear"></span> <strong>SADEEPA TECH</strong> • Designed with ❤️ for creators and developers worldwide.
+      </div>
+      <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fa-solid fa-arrow-up"></i>
+        <span>Back to Top</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: MOUSE TRACKING, STARFIELD, SOUNDS & RETRO MINI GAME
+       ========================================================================== -->
+  <script>
+    // 1. Current Year Setup
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    function scrollToGame() {
+      document.getElementById('game-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 2. Interactive Mascot Eye Tracking
+    const leftPupil = document.getElementById('left-pupil');
+    const rightPupil = document.getElementById('right-pupil');
+
+    window.addEventListener('mousemove', (e) => {
+      const { innerWidth, innerHeight } = window;
+      const xOffset = ((e.clientX / innerWidth) - 0.5) * 6;
+      const yOffset = ((e.clientY / innerHeight) - 0.5) * 6;
+
+      if (leftPupil && rightPupil) {
+        leftPupil.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+        rightPupil.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+      }
+    });
+
+    // 3. Ambient Starfield Canvas Animation
+    (function initStarfield() {
+      const canvas = document.getElementById('space-canvas');
+      const ctx = canvas.getContext('2d');
+      let stars = [];
+      let width, height;
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < 90; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5 + 0.5,
+          alpha: Math.random() * 0.8 + 0.2,
+          speed: Math.random() * 0.25 + 0.05
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        for (let star of stars) {
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+          ctx.fill();
+
+          star.y -= star.speed;
+          if (star.y < 0) {
+            star.y = height;
+            star.x = Math.random() * width;
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // 4. Enhanced Procedural Audio Synthesizer (Zero external dependencies)
+    let audioEnabled = true;
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playSound(type) {
+      if (!audioEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        if (type === 'jump') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(280, now);
+          osc.frequency.exponentialRampToValueAtTime(620, now + 0.12);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.12);
+          osc.start(now);
+          osc.stop(now + 0.12);
+        } else if (type === 'doubleJump') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(450, now);
+          osc.frequency.exponentialRampToValueAtTime(950, now + 0.16);
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.16);
+          osc.start(now);
+          osc.stop(now + 0.16);
+        } else if (type === 'point') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(600, now);
+          osc.frequency.setValueAtTime(900, now + 0.06);
+          gain.gain.setValueAtTime(0.18, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+          osc.start(now);
+          osc.stop(now + 0.15);
+        } else if (type === 'star') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(523.25, now);
+          osc.frequency.setValueAtTime(659.25, now + 0.06);
+          osc.frequency.setValueAtTime(783.99, now + 0.12);
+          osc.frequency.setValueAtTime(1046.50, now + 0.18);
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.28);
+          osc.start(now);
+          osc.stop(now + 0.28);
+        } else if (type === 'shield') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(320, now);
+          osc.frequency.exponentialRampToValueAtTime(800, now + 0.22);
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.22);
+          osc.start(now);
+          osc.stop(now + 0.22);
+        } else if (type === 'shieldBreak') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(350, now);
+          osc.frequency.linearRampToValueAtTime(120, now + 0.2);
+          gain.gain.setValueAtTime(0.3, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+          osc.start(now);
+          osc.stop(now + 0.2);
+        } else if (type === 'hit') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(180, now);
+          osc.frequency.linearRampToValueAtTime(50, now + 0.28);
+          gain.gain.setValueAtTime(0.35, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.28);
+          osc.start(now);
+          osc.stop(now + 0.28);
+        }
+      } catch (err) {}
+    }
+
+    const soundToggleBtn = document.getElementById('soundToggleBtn');
+    soundToggleBtn.addEventListener('click', () => {
+      audioEnabled = !audioEnabled;
+      soundToggleBtn.innerHTML = audioEnabled 
+        ? '<i class="fa-solid fa-volume-high"></i> Sound: ON' 
+        : '<i class="fa-solid fa-volume-xmark"></i> Sound: OFF';
+    });
+
+    // 5. High-Performance, Delta-Timed Game Engine: Byte Turbo Runner
+    const gCanvas = document.getElementById('gameCanvas');
+    const gCtx = gCanvas.getContext('2d');
+    const startBtn = document.getElementById('startBtn');
+    const gameOverlay = document.getElementById('gameOverlay');
+    const scoreEl = document.getElementById('game-score');
+    const levelEl = document.getElementById('game-level');
+    const highscoreEl = document.getElementById('game-highscore');
+    const shieldStatBadge = document.getElementById('shield-stat-badge');
+    const overlayTitle = document.getElementById('overlayTitle');
+    const overlaySubtitle = document.getElementById('overlaySubtitle');
+    const startBtnText = document.getElementById('startBtnText');
+    const gameWrapper = document.getElementById('gameWrapper');
+    const pauseToggleBtn = document.getElementById('pauseToggleBtn');
+    const mobileJumpBtn = document.getElementById('mobileJumpBtn');
+
+    let gameRunning = false;
+    let gamePaused = false;
+    let score = 0;
+    let level = 1;
+    let highscore = localStorage.getItem('sadeepatech_404_highscore') || 0;
+    highscoreEl.textContent = highscore;
+
+    // Fast, responsive calibrated physics
+    const baseSpeed = 7.5;
+    let currentSpeed = baseSpeed;
+    let spawnTimer = 0;
+    let animationId = null;
+    let lastTime = 0;
+
+    const player = {
+      x: 75,
+      y: 160,
+      width: 44,
+      height: 48,
+      dy: 0,
+      jumpForce: 14.5,
+      doubleJumpForce: 13.0,
+      gravity: 0.88,
+      isGrounded: true,
+      hasDoubleJump: true,
+      hasShield: false,
+      invincibleTimer: 0,
+      runCycle: 0
+    };
+
+    let obstacles = [];
+    let items = []; // stars & shields
+    let particles = [];
+    let floatingTexts = [];
+
+    function triggerJump() {
+      if (!gameRunning || gamePaused) return;
+
+      if (player.isGrounded) {
+        player.dy = -player.jumpForce;
+        player.isGrounded = false;
+        player.hasDoubleJump = true;
+        playSound('jump');
+        createParticles(player.x + 22, player.y + 44, '#38bdf8', 8);
+      } else if (player.hasDoubleJump) {
+        // Double Jump action
+        player.dy = -player.doubleJumpForce;
+        player.hasDoubleJump = false;
+        playSound('doubleJump');
+        createParticles(player.x + 22, player.y + 46, '#ec4899', 14);
+        createParticles(player.x + 22, player.y + 46, '#38bdf8', 10);
+        addFloatingText(player.x, player.y - 12, 'DOUBLE JUMP! 🚀', '#f472b6');
+      }
+    }
+
+    function addFloatingText(x, y, text, color) {
+      floatingTexts.push({ x, y, text, color, life: 1 });
+    }
+
+    function createParticles(x, y, color, count) {
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: x,
+          y: y,
+          vx: (Math.random() - 0.5) * 6,
+          vy: (Math.random() - 0.5) * 6 - 1,
+          life: 1,
+          size: Math.random() * 3 + 2,
+          color: color
+        });
+      }
+    }
+
+    function togglePause() {
+      if (!gameRunning) return;
+      gamePaused = !gamePaused;
+      pauseToggleBtn.innerHTML = gamePaused 
+        ? '<i class="fa-solid fa-play"></i> Resume' 
+        : '<i class="fa-solid fa-pause"></i> Pause';
+
+      if (!gamePaused) {
+        lastTime = performance.now();
+        animationId = requestAnimationFrame(gameLoop);
+      } else {
+        // Render sleek pause indicator
+        gCtx.fillStyle = 'rgba(6, 9, 17, 0.7)';
+        gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height);
+        gCtx.fillStyle = '#fff';
+        gCtx.font = 'bold 24px "Space Grotesk", sans-serif';
+        gCtx.textAlign = 'center';
+        gCtx.fillText('GAME PAUSED', gCanvas.width / 2, gCanvas.height / 2 - 8);
+        gCtx.font = '14px "Plus Jakarta Sans", sans-serif';
+        gCtx.fillStyle = '#94a3b8';
+        gCtx.fillText('Press P or click Resume to continue', gCanvas.width / 2, gCanvas.height / 2 + 20);
+      }
+    }
+
+    function resetGame() {
+      score = 0;
+      level = 1;
+      currentSpeed = baseSpeed;
+      scoreEl.textContent = '0';
+      levelEl.textContent = '1';
+      obstacles = [];
+      items = [];
+      particles = [];
+      floatingTexts = [];
+      player.y = 160;
+      player.dy = 0;
+      player.isGrounded = true;
+      player.hasDoubleJump = true;
+      player.hasShield = false;
+      player.invincibleTimer = 0;
+      shieldStatBadge.style.display = 'none';
+
+      spawnTimer = 45;
+      gameRunning = true;
+      gamePaused = false;
+      pauseToggleBtn.innerHTML = '<i class="fa-solid fa-pause"></i> Pause';
+      gameOverlay.classList.add('hidden');
+      lastTime = performance.now();
+    }
+
+    function gameOver() {
+      gameRunning = false;
+      cancelAnimationFrame(animationId);
+      playSound('hit');
+
+      if (score > highscore) {
+        highscore = score;
+        localStorage.setItem('sadeepatech_404_highscore', highscore);
+        highscoreEl.textContent = highscore;
+      }
+
+      overlayTitle.textContent = 'Cyber Glitch Crash!';
+      overlaySubtitle.textContent = `Turbo Run Finished! Score: ${score} points (Level ${level}) 🚀`;
+      startBtnText.textContent = 'Play Again';
+      gameOverlay.classList.remove('hidden');
+    }
+
+    function spawnGameEntity() {
+      const rand = Math.random();
+
+      // 1. Spawning Collectibles (Star or Shield)
+      if (rand < 0.22) {
+        const isShield = Math.random() < 0.25 && !player.hasShield;
+        items.push({
+          x: gCanvas.width + 20,
+          y: Math.random() > 0.5 ? 120 : 160,
+          type: isShield ? 'shield' : 'star',
+          size: 26,
+          bob: 0
+        });
+      }
+
+      // 2. Spawning Obstacles
+      const isFlying = Math.random() > 0.65;
+      if (isFlying) {
+        // Drone flying overhead (requires dodging underneath or high double-jump)
+        obstacles.push({
+          x: gCanvas.width + 30,
+          y: 110,
+          width: 38,
+          height: 28,
+          type: 'drone',
+          wingAngle: 0
+        });
+      } else {
+        // Ground glitch obstacle
+        const isBug = Math.random() > 0.45;
+        obstacles.push({
+          x: gCanvas.width + 30,
+          y: 172,
+          width: isBug ? 34 : 28,
+          height: isBug ? 36 : 36,
+          type: isBug ? 'bug' : 'chip'
+        });
+      }
+    }
+
+    function drawGround(step) {
+      // Base Floor
+      gCtx.fillStyle = '#0a0f1d';
+      gCtx.fillRect(0, 208, gCanvas.width, 32);
+
+      // Neon Top Border
+      gCtx.strokeStyle = '#6366f1';
+      gCtx.lineWidth = 2.5;
+      gCtx.beginPath();
+      gCtx.moveTo(0, 208);
+      gCtx.lineTo(gCanvas.width, 208);
+      gCtx.stroke();
+
+      // High-speed Cyber Grid markers
+      gCtx.fillStyle = 'rgba(99, 102, 241, 0.45)';
+      const offset = (Date.now() / 8 * (currentSpeed / 6)) % 60;
+      for (let i = -60; i < gCanvas.width + 60; i += 60) {
+        gCtx.fillRect(i - offset, 218, 28, 3);
+        gCtx.fillStyle = 'rgba(56, 189, 248, 0.3)';
+        gCtx.fillRect(i - offset + 14, 224, 12, 2);
+        gCtx.fillStyle = 'rgba(99, 102, 241, 0.45)';
+      }
+    }
+
+    function drawPlayer() {
+      const { x, y } = player;
+
+      // Invincibility flicker
+      if (player.invincibleTimer > 0 && Math.floor(Date.now() / 80) % 2 === 0) {
+        return;
+      }
+
+      // Ground shadow
+      gCtx.fillStyle = 'rgba(56, 189, 248, 0.35)';
+      gCtx.beginPath();
+      gCtx.ellipse(x + 22, 208, Math.max(8, 20 - (160 - y) * 0.15), 5, 0, 0, Math.PI * 2);
+      gCtx.fill();
+
+      // Thruster flame when in air
+      if (!player.isGrounded) {
+        gCtx.fillStyle = player.dy < 0 ? '#ec4899' : '#38bdf8';
+        gCtx.beginPath();
+        gCtx.ellipse(x + 22, y + 46, 6 + Math.random() * 3, 10 + Math.random() * 5, 0, 0, Math.PI * 2);
+        gCtx.fill();
+        gCtx.fillStyle = '#ffffff';
+        gCtx.beginPath();
+        gCtx.ellipse(x + 22, y + 44, 3, 5, 0, 0, Math.PI * 2);
+        gCtx.fill();
+      }
+
+      // Cute Robot Body
+      gCtx.fillStyle = '#6366f1';
+      gCtx.beginPath();
+      gCtx.roundRect(x + 6, y + 8, 32, 34, 10);
+      gCtx.fill();
+      gCtx.strokeStyle = '#a5b4fc';
+      gCtx.lineWidth = 2;
+      gCtx.stroke();
+
+      // Screen Visor
+      gCtx.fillStyle = '#090d16';
+      gCtx.beginPath();
+      gCtx.roundRect(x + 10, y + 15, 24, 18, 6);
+      gCtx.fill();
+
+      // Glowing Eyes
+      gCtx.fillStyle = '#38bdf8';
+      gCtx.beginPath();
+      gCtx.arc(x + 16, y + 23, 3, 0, Math.PI * 2);
+      gCtx.arc(x + 28, y + 23, 3, 0, Math.PI * 2);
+      gCtx.fill();
+
+      // Antenna
+      gCtx.strokeStyle = '#fbbf24';
+      gCtx.lineWidth = 2;
+      gCtx.beginPath();
+      gCtx.moveTo(x + 22, y + 8);
+      gCtx.lineTo(x + 22, y - 2);
+      gCtx.stroke();
+      gCtx.fillStyle = '#fbbf24';
+      gCtx.beginPath();
+      gCtx.arc(x + 22, y - 4, 3.5, 0, Math.PI * 2);
+      gCtx.fill();
+
+      // Active Cyber Shield Bubble
+      if (player.hasShield) {
+        gCtx.strokeStyle = 'rgba(56, 189, 248, 0.85)';
+        gCtx.lineWidth = 3;
+        gCtx.shadowColor = '#38bdf8';
+        gCtx.shadowBlur = 12;
+        gCtx.beginPath();
+        const pulse = Math.sin(Date.now() / 150) * 2;
+        gCtx.arc(x + 22, y + 24, 27 + pulse, 0, Math.PI * 2);
+        gCtx.stroke();
+        gCtx.fillStyle = 'rgba(56, 189, 248, 0.12)';
+        gCtx.fill();
+        gCtx.shadowBlur = 0;
+      }
+    }
+
+    function drawObstacles() {
+      for (let ob of obstacles) {
+        if (ob.type === 'drone') {
+          // Cyber Flying Drone
+          gCtx.fillStyle = '#1e1b4b';
+          gCtx.beginPath();
+          gCtx.roundRect(ob.x, ob.y, ob.width, ob.height, 8);
+          gCtx.fill();
+          gCtx.strokeStyle = '#f43f5e';
+          gCtx.lineWidth = 2;
+          gCtx.stroke();
+
+          // Sensor eye
+          gCtx.fillStyle = '#f43f5e';
+          gCtx.beginPath();
+          gCtx.arc(ob.x + ob.width / 2, ob.y + ob.height / 2, 5, 0, Math.PI * 2);
+          gCtx.fill();
+
+          // Spinning rotor blades
+          ob.wingAngle += 0.3;
+          gCtx.strokeStyle = '#38bdf8';
+          gCtx.lineWidth = 2.5;
+          gCtx.beginPath();
+          gCtx.moveTo(ob.x - 4, ob.y - 2);
+          gCtx.lineTo(ob.x + ob.width + 4, ob.y - 2);
+          gCtx.stroke();
+        } else if (ob.type === 'bug') {
+          // Red Glitch Bug
+          gCtx.fillStyle = '#ef4444';
+          gCtx.beginPath();
+          gCtx.roundRect(ob.x, ob.y, ob.width, ob.height, 8);
+          gCtx.fill();
+          gCtx.strokeStyle = '#fca5a5';
+          gCtx.lineWidth = 2;
+          gCtx.stroke();
+
+          // White pixel eyes
+          gCtx.fillStyle = '#fff';
+          gCtx.fillRect(ob.x + 6, ob.y + 10, 6, 6);
+          gCtx.fillRect(ob.x + 20, ob.y + 10, 6, 6);
+
+          // Glitch spikes
+          gCtx.fillStyle = '#ef4444';
+          gCtx.fillRect(ob.x + 4, ob.y - 6, 4, 6);
+          gCtx.fillRect(ob.x + 24, ob.y - 6, 4, 6);
+        } else {
+          // Data RAM Block
+          gCtx.fillStyle = '#10b981';
+          gCtx.beginPath();
+          gCtx.roundRect(ob.x, ob.y + 6, ob.width, ob.height - 6, 4);
+          gCtx.fill();
+          gCtx.fillStyle = '#fbbf24';
+          gCtx.fillRect(ob.x + 4, ob.y + 14, ob.width - 8, 8);
+        }
+      }
+    }
+
+    function drawItems() {
+      for (let it of items) {
+        it.bob += 0.08;
+        const bobY = it.y + Math.sin(it.bob) * 5;
+
+        if (it.type === 'star') {
+          // Golden Tech Star
+          gCtx.fillStyle = '#fbbf24';
+          gCtx.font = '24px sans-serif';
+          gCtx.textAlign = 'center';
+          gCtx.fillText('⭐', it.x, bobY);
+        } else if (it.type === 'shield') {
+          // Cyber Shield Orb
+          gCtx.fillStyle = 'rgba(56, 189, 248, 0.25)';
+          gCtx.beginPath();
+          gCtx.arc(it.x, bobY, 14, 0, Math.PI * 2);
+          gCtx.fill();
+          gCtx.strokeStyle = '#38bdf8';
+          gCtx.lineWidth = 2;
+          gCtx.stroke();
+          gCtx.font = '16px sans-serif';
+          gCtx.textAlign = 'center';
+          gCtx.fillText('🛡️', it.x, bobY + 5);
+        }
+      }
+    }
+
+    function drawFloatingTexts() {
+      for (let i = floatingTexts.length - 1; i >= 0; i--) {
+        let ft = floatingTexts[i];
+        ft.y -= 1.2;
+        ft.life -= 0.025;
+
+        if (ft.life <= 0) {
+          floatingTexts.splice(i, 1);
+        } else {
+          gCtx.fillStyle = ft.color;
+          gCtx.globalAlpha = ft.life;
+          gCtx.font = 'bold 15px "Space Grotesk", sans-serif';
+          gCtx.textAlign = 'left';
+          gCtx.fillText(ft.text, ft.x, ft.y);
+          gCtx.globalAlpha = 1;
+        }
+      }
+    }
+
+    function gameLoop(currentTime) {
+      if (!gameRunning || gamePaused) return;
+
+      // Delta time calculation (calibrated to 60fps)
+      if (!lastTime) lastTime = currentTime;
+      const dt = Math.min((currentTime - lastTime) / 1000, 0.05);
+      const step = dt * 60;
+      lastTime = currentTime;
+
+      gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+
+      // Player Physics with Delta Time
+      player.dy += player.gravity * step;
+      player.y += player.dy * step;
+
+      if (player.y >= 160) {
+        player.y = 160;
+        player.dy = 0;
+        player.isGrounded = true;
+        player.hasDoubleJump = true;
+      }
+
+      if (player.invincibleTimer > 0) {
+        player.invincibleTimer -= dt;
+      }
+
+      // Draw World Elements
+      drawGround(step);
+      drawPlayer();
+
+      // Entity Spawning
+      spawnTimer -= step;
+      if (spawnTimer <= 0) {
+        spawnGameEntity();
+        // Dynamic spawn frequency
+        spawnTimer = Math.max(38, Math.floor(Math.random() * 30) + 50 - Math.min(25, level * 2.5));
+      }
+
+      // Collectibles Handling
+      for (let i = items.length - 1; i >= 0; i--) {
+        let it = items[i];
+        it.x -= currentSpeed * step;
+
+        // Pickup detection
+        const dist = Math.hypot((player.x + 22) - it.x, (player.y + 24) - it.y);
+        if (dist < 32) {
+          if (it.type === 'star') {
+            score += 50;
+            scoreEl.textContent = score;
+            playSound('star');
+            createParticles(it.x, it.y, '#fbbf24', 16);
+            addFloatingText(it.x - 10, it.y - 10, '+50 ⭐', '#fbbf24');
+          } else if (it.type === 'shield') {
+            player.hasShield = true;
+            shieldStatBadge.style.display = 'inline-flex';
+            playSound('shield');
+            createParticles(it.x, it.y, '#38bdf8', 20);
+            addFloatingText(it.x - 20, it.y - 10, 'SHIELD ON 🛡️', '#38bdf8');
+          }
+          items.splice(i, 1);
+          continue;
+        }
+
+        if (it.x < -30) {
+          items.splice(i, 1);
+        }
+      }
+
+      drawItems();
+
+      // Obstacles Handling & Collision
+      for (let i = obstacles.length - 1; i >= 0; i--) {
+        let ob = obstacles[i];
+        ob.x -= currentSpeed * step;
+
+        // AABB Collision Check
+        const hitX = player.x + 8 < ob.x + ob.width && player.x + player.width - 8 > ob.x;
+        const hitY = player.y + 8 < ob.y + ob.height && player.y + player.height > ob.y;
+
+        if (hitX && hitY && player.invincibleTimer <= 0) {
+          if (player.hasShield) {
+            // Shield absorbs the crash!
+            player.hasShield = false;
+            player.invincibleTimer = 1.2;
+            shieldStatBadge.style.display = 'none';
+            playSound('shieldBreak');
+            createParticles(ob.x + 16, ob.y + 16, '#38bdf8', 25);
+            addFloatingText(player.x, player.y - 15, 'SHIELD DEFENDED! 🛡️', '#38bdf8');
+            obstacles.splice(i, 1);
+            continue;
+          } else {
+            createParticles(ob.x + 16, ob.y + 16, '#ef4444', 22);
+            gameOver();
+            return;
+          }
+        }
+
+        // Passed obstacle
+        if (ob.x + ob.width < 0) {
+          obstacles.splice(i, 1);
+          score += 10;
+          scoreEl.textContent = score;
+          playSound('point');
+
+          // Progressive Level & Speed Up
+          const newLevel = 1 + Math.floor(score / 120);
+          if (newLevel !== level) {
+            level = newLevel;
+            levelEl.textContent = level;
+            currentSpeed = baseSpeed + (level - 1) * 0.85;
+            addFloatingText(gCanvas.width / 2 - 40, 60, `LEVEL ${level} REACHED! ⚡`, '#ec4899');
+          }
+        }
+      }
+
+      drawObstacles();
+
+      // Particles Physics
+      for (let i = particles.length - 1; i >= 0; i--) {
+        let p = particles[i];
+        p.x += p.vx * step;
+        p.y += p.vy * step;
+        p.life -= 0.035 * step;
+
+        if (p.life <= 0) {
+          particles.splice(i, 1);
+        } else {
+          gCtx.fillStyle = p.color;
+          gCtx.globalAlpha = Math.max(0, p.life);
+          gCtx.beginPath();
+          gCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          gCtx.fill();
+          gCtx.globalAlpha = 1;
+        }
+      }
+
+      drawFloatingTexts();
+
+      animationId = requestAnimationFrame(gameLoop);
+    }
+
+    // Input Listeners
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'KeyP') {
+        togglePause();
+        e.preventDefault();
+        return;
+      }
+
+      if (e.code === 'Space' || e.code === 'ArrowUp') {
+        if (!gameRunning && !gameOverlay.classList.contains('hidden')) {
+          resetGame();
+          animationId = requestAnimationFrame(gameLoop);
+        } else {
+          triggerJump();
+        }
+        e.preventDefault();
+      }
+    });
+
+    gameWrapper.addEventListener('pointerdown', (e) => {
+      if (e.target !== startBtn && !startBtn.contains(e.target)) {
+        triggerJump();
+      }
+    });
+
+    mobileJumpBtn.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      if (!gameRunning && !gameOverlay.classList.contains('hidden')) {
+        resetGame();
+        animationId = requestAnimationFrame(gameLoop);
+      } else {
+        triggerJump();
+      }
+    });
+
+    pauseToggleBtn.addEventListener('click', () => {
+      togglePause();
+    });
+
+    startBtn.addEventListener('click', () => {
+      resetGame();
+      animationId = requestAnimationFrame(gameLoop);
+    });
+
+    // Initial render
+    drawGround(1);
+    drawPlayer();
+  </script>
+</body>
+</html>
